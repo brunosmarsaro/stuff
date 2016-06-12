@@ -19,7 +19,6 @@ then
 
 	sudo apt-get install nvidia-opencl-dev:amd64 -y
 	sudo apt-get install nvidia-opencl-icd-361-updates -y
-	echo "Instalação Realizada com Sucesso!"
 fi
 
 # Adding Python Deep Learning Libs!
