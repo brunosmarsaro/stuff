@@ -1,6 +1,7 @@
-*** USING TEXTURE CLASSS ***
+#Using Texture Class
 
 In the init function you should instantiate the pointer to your .bmp texture file like in the example below:
+```
 ...
 GLuint texID;  // Global variable
 ...
@@ -11,8 +12,9 @@ void init(){
     texID = tex.getTexID();
 ... 
 }
-
+```
 Then, you'll be able to use it in the display function like this:
+```
 ...
 void display(){
 ...
@@ -29,5 +31,5 @@ void display(){
   glDisable(GL_TEXTURE_2D);
 ...
 }
-
+```
 The example above is to simply texture a 4 sided polygon, however it can be applied to much more complex stuff.
