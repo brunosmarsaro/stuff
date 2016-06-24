@@ -5,9 +5,8 @@ using namespace std;
 class Texture{
 	private:
 		FILE *file;
-        GLuint textureID;
+        	GLuint textureID;
 	public:
-		//Texture( void );
 		Texture( FILE *fp );
 		~Texture( void );
 		void setTexFile( FILE *fp ) { file = fp; }
