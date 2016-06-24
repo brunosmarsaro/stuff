@@ -1,7 +1,5 @@
 #include "Texture.h"
 
-//Texture::Texture( void ) {}
-
 Texture::Texture( FILE *fp){
 	file = fp;
 	textureID = loadBMP_custom();
@@ -10,16 +8,13 @@ Texture::Texture( FILE *fp){
 Texture::~Texture( void ) {}
 
 GLuint Texture::loadBMP_custom( void ){
-	// Data read from the header of the BMP file
+    // Data read from the header of the BMP file
     unsigned char header[54]; // Each BMP file begins by a 54-bytes header
     unsigned int dataPos;     // Position in the file where the actual data begins
     unsigned int width, height;
     unsigned int imageSize;   // = width*height*3
     // Actual RGB data
     unsigned char * data;
-    
- 	//FILE * file = fopen(imagepath,"rb");
- 	//FILE *file = imagepath;
     
     /* Verifications regarding BMP file */
     if (!file){printf("Image could not be opened\n"); return 0;}
@@ -50,9 +45,6 @@ GLuint Texture::loadBMP_custom( void ){
     // Read the actual data from the file into the buffer
     fread(data,1,imageSize,file);
     
-    // Everything is in memory now, the file can be closed
-    //fclose(file);
-    
     // Create one OpenGL texture
     GLuint textureID;
     glGenTextures(1, &textureID);
@@ -66,7 +58,7 @@ GLuint Texture::loadBMP_custom( void ){
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	free( data );
-	return textureID;
+    free( data );
+    return textureID;
 
 }
